@@ -1,0 +1,11 @@
+<h3>详情页面</h3>
+
+<p>==== start =================</p>
+id: <%= @blog.id %><br/>
+时间:<%= @blog.time %><br/>
+标题:<%= @blog.title %><br/>
+内容:<%= @blog.content %><br/>
+created_at: <%= @blog.created_at %> <br/>
+<p>==== end =================</p>
+
+<%= link_to'列表页面',blogs_path %>

@@ -1,0 +1,14 @@
+<%= form_for @blog do |f| %>
+
+<h3>新建页面</h3>
+
+  <form action="/blogs" method="POST">
+    时间:<input type="text" name="blog_time"><br/>
+    题目:<input type="text" name="blog_title"><br/>
+    内容:<input type="text" name="blog_content"><br/>
+    <input type="submit" value="确定">
+  </form>
+
+<%= link_to "返回",'/blogs/list' %>
+<% end %>
+

@@ -1,0 +1,29 @@
+<h3>新建页面</h3>
+
+<table>
+  <tr>
+    <td>名称</td>
+    <td>价格</td>
+    <td>操作</td>
+  <tr>
+
+  <%= @goods.each do |goods| %>
+    <tr>
+      <td>
+        <%= link_to goods.name,goods %>
+      </td>
+      <td>
+        <%=goods.price %>
+      </td>
+      <td>
+        <%= link_to "编辑", edit_good_path(:id =>goods.id) %>
+        <%= link_to "删除",goods,:method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to "新建", new_good_path %>
+

@@ -1,0 +1,11 @@
+<h3>daimashiyou  ruby  shengchengde</h3>
+<% books = ['santi1','snati2','santi3'] %>
+<% books.each do |book| %>
+  <p> <%= book %> </p>
+<%= Time.now%></p>
+<% end %>
+
+<a href='/books/new'>xinjiantushu</a>
+<a href='<%= new_book_path %>'>xinjian</a>
+<%= link_to "xinjian",'/books/new' %>
+<%= link_to "xinjain",new_book_path %>

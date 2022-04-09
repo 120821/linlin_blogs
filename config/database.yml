@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: admin
+  password: 88888888
+
+development:
+  <<: *default
+  database: blogs
+test:
+  <<: *default
+  database: blogs_test
+production:
+  <<: *default
+  database: blogs

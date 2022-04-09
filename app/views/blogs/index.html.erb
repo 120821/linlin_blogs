@@ -1,0 +1,33 @@
+<h3>列表页面</h3>
+
+<table>
+
+  <th>
+    <td>
+    </td>
+  </th>
+
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td>
+        <%# link_to blog.time, blog %>
+          <a href="/blogs/<%= blog.id %>" > <%= blog.id %> <%= blog.title %> </a>
+      </td>
+      <td>
+        <%=blog.title %>
+      </td>
+      <td>
+        <%=blog.content %>
+      </td>
+      <td>
+        <%= link_to "编辑", edit_blog_path(:id => blog.id) %>
+        <%= link_to "删除",blog,:method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to "新建", new_blog_path %>
+

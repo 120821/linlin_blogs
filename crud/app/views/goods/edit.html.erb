@@ -1,0 +1,14 @@
+<hr>编辑页面</h3>
+
+
+<%= render :partial => 'form' %>
+
+性别： <%= select_tag"sex",options_for_select([['male','男'],['female','女']]) %> <br/>
+<hr/>
+
+<%= form_tag good_path(:id => @good.id),:method =>'PUT' do %>
+  名称：<%= text_field_tag 'good[name]',@good.name %> <br/>
+  价格：<%= text_field_tag 'good[price]',@good.price %> <br/>
+  <%=submit_tag %>
+<% end %>
+

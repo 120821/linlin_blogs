@@ -1,0 +1,5 @@
+2022-03-08 09:17:29 +0800 Writing PID to tmp/pids/thin.pid
+2022-03-08 09:17:29 +0800 Using rack adapter
+2022-03-08 09:17:29 +0800 Thin web server (v1.8.1 codename Infinite Smoothie)
+2022-03-08 09:17:29 +0800 Maximum connections set to 1024
+2022-03-08 09:17:29 +0800 Listening on 0.0.0.0:6661, CTRL+C to stop

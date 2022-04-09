@@ -1,0 +1,9 @@
+<%= form_for @good do |f| %>
+
+<%# form_for '/goods/new' do |f| %>
+<%# form_for '/goods/1/edit' do |f| %>
+  名称: <%= f.text_field :name %> <br/>
+  价格<%= f.text_field :price %><br/>
+  <%= f.submit %>
+
+<% end %>
