@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require animate.min.css
+ *= require base.css
+ *= require font-awesome.min.css
+ *= require index.css
+ *= require share.min.css
  */
