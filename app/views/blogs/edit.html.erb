@@ -5,8 +5,7 @@
 <%= form_tag blog_path(:id => @blog.id),:method =>'PUT' do %>
   时间:<input type="text" name="blog_time" value='<%= @blog.time %>' /><br/>
   题目:<input type="text" name="blog_title" value='<%= @blog.title %>' /><br/>
-  内容:<input type="text" name="blog_content" value='<%= @blog.content %>' /><br/>
+  content:<input type="text" name="blog_content" value='<%= @blog.content %>' /><br/>
   <submit type="submit" value="确定">
   <%=submit_tag %>
 <% end %>
-

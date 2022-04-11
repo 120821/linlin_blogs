@@ -3,6 +3,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: admin
+  user: admin
   password: 88888888
 
 development:

@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
 
   before_action :get_by_id,:only =>[:show,:destroy,:edit,:update]
   layout 'a'
+
   def index
     @blogs = Blog.all
     render :layout => 'a'
@@ -28,7 +29,6 @@ class BlogsController < ApplicationController
   end
 
   def update
-
     #@blog = Blog.find(params[:id])
     puts "=== in update, before : #{@blog.inspect}"
     @blog.title = params[:blog_title]
@@ -36,9 +36,8 @@ class BlogsController < ApplicationController
     @blog.content = params[:blog_content]
     @blog.save!
     puts "=== in update, after: #{@blog.inspect}"
-
     redirect_to blogs_path
-   #redirect_to :back
+    #redirect_to :back
   end
 
   def show
