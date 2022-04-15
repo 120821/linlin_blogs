@@ -2,16 +2,13 @@ class BlogsController < ApplicationController
 
   before_action :get_by_id,:only =>[:show,:destroy,:edit,:update]
   layout 'a'
+
   def index
     @blogs = Blog
     puts "--------------------hihih"
-    if params[:blog_title] != nil && params[:blog_title] != ''
-      @blogs = @blogs.where('name like ? ', "%#{params[:blog_title]}%")
-    end
-    if params[:blog_content] != nil && params[:blog_content] != ''
-      @blogs = @blogs.where('address like ? ', "%#{params[:blog_content]}%")
-    end
-    @blogs = @blogs.page(params[:page]).per(3)
+    @blogs = @blogs.where('name like ? ', "%#{params[:blog_title]}%") if params[:blog_title].present?
+    @blogs = @blogs.where('address like ? ', "%#{params[:blog_content]}%") if params[:blog_content].present?
+    @blogs = @blogs.page(params[:page]).per(30)
     render :layout => 'a'
     puts "-------end--index-----------hihih"
   end
@@ -35,10 +32,15 @@ class BlogsController < ApplicationController
   end
 
   def update
+    #@blog = Blog.find(params[:id])
     puts "=== in update, before : #{@blog.inspect}"
+    @blog.title = params[:blog_title]
+    @blog.time = params[:blog_time]
+    @blog.content = params[:blog_content]
+    @blog.save!
+    puts "=== in update, after: #{@blog.inspect}"
     redirect_to blogs_path
-  puts "=== in update, after: #{@blog.inspect}"
-
+    #redirect_to :back
   end
 
   def show
