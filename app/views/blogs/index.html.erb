@@ -1,15 +1,12 @@
-<h3>列表页面</h3>
+<h3>列表</h3>
 
+博客总数<%= @blogs.size %>
+<br/>
+<%= paginate @blogs %>
 <table class="table table-striped">
-  <th>
-    <td>
-    </td>
-  </th>
-
   <% @blogs.each do |blog| %>
     <tr>
-      <td>
-        <%# link_to blog.time, blog %>
+      <td >
         <a href="/blogs/<%= blog.id %>" > <%= blog.id %> <%= blog.title %> </a>
       </td>
       <td>
@@ -20,7 +17,7 @@
       </td>
       <td>
         <%= link_to "编辑", edit_blog_path(:id => blog.id) %>
-        <%= link_to "删除",blog,:method => :delete %>
+        <%= link_to "删除",blog,:method => :delete, class: 'btn btn-primary' %>
       </td>
     </tr>
   <% end %>
