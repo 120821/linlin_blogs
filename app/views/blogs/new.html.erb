@@ -1,14 +1,28 @@
-<%= form_for @blog do |f| %>
-
 <h3>新建页面</h3>
+<%= form_for @blog do |form| %>
 
-  <form action="/blogs" method="POST">
-    时间:<input type="text" name="blog_time"><br/>
-    题目:<input type="text" name="blog_title"><br/>
-    内容:<input type="text" name="blog_content"><br/>
-    <input type="submit" value="确定">
-  </form>
+  <table class='table table-striped table-hover table-border'>
+    <tr>
+      <th style="width: 150px;">
+        标题
+      </th>
+      <td>
+        <%= form.text_field :title, class: "form-control" %>
+      </td>
+    </tr>
 
-<%= link_to "返回",'/blogs/list' %>
+    <tr>
+      <th>
+        内容
+        <%#= form.label :content %>
+      </th>
+      <td>
+        <%= form.text_field :content , class: "form-control" %>
+      </td>
+    </tr>
+
+  </table>
+  <%= form.submit "确定", class: 'btn btn-primary' %>
 <% end %>
-
+<br/>
+<%= link_to "返回",blogs_path, class: 'btn btn-primary' %>

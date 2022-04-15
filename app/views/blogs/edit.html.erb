@@ -1,12 +1,8 @@
-<h3>编辑页面</h3>
+<h3>编辑</h3>
 
-<%#= render :partial => 'form' %>
+<%= render 'form', blog: @blog %>
 
-<%= form_tag blog_path(:id => @blog.id),:method =>'PUT' do %>
-  时间:<input type="text" name="blog_time" value='<%= @blog.time %>' /><br/>
-  题目:<input type="text" name="blog_title" value='<%= @blog.title %>' /><br/>
-  内容:<input type="text" name="blog_content" value='<%= @blog.content %>' /><br/>
-  <submit type="submit" value="确定">
-  <%=submit_tag %>
-<% end %>
+<br/>
+<%= link_to '详情', @blog , class: 'btn btn-primary' %> |
+<%= link_to '返回', blogs_path, class: 'btn btn-primary' %>
 

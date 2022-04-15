@@ -1,11 +1,27 @@
 <h3>详情页面</h3>
 
-<p>==== start =================</p>
-id: <%= @blog.id %><br/>
-时间:<%= @blog.time %><br/>
-标题:<%= @blog.title %><br/>
-内容:<%= @blog.content %><br/>
-created_at: <%= @blog.created_at %> <br/>
-<p>==== end =================</p>
+<table class='table table-striped table-hover table-border'>
+  <tr>
+    <th style="width:150px;">
+      标题
+    </th>
+    <td>
+      <%= @blog.title %>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      内容
+    </th>
+    <td>
+      <%= @blog.content %>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
 
-<%= link_to'列表页面',blogs_path %>
+<br/>
+<%= link_to'返回',blogs_path, class: 'btn btn-primary' %>
