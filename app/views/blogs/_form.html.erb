@@ -1,0 +1,26 @@
+<%= form_for @blog do |form| %>
+  <table class="table table-succeed table-striped">
+    <tr>
+      <th style="width:150px;">
+        题目
+      </th>
+      <td>
+        <%= form.text_field :title, class: "form-control" %><br/>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        内容
+      </th>
+      <td>
+        <%= form.text_field :content, class: "form-control" %><br/>
+      </td>
+      <td>
+      </td>
+    </tr>
+  </table>
+  <%= form.submit "确定", class: 'btn btn-primary' %>
+
+<% end %>
