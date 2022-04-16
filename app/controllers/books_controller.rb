@@ -1,4 +1,4 @@
-class Interface:: BooksController < ActionController::Base
+class Interface::BooksController < ActionController::Base
   def all
     render :json => {
       :name =>'xiaowang',

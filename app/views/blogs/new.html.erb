@@ -1,27 +1,5 @@
 <h3>新建页面</h3>
-<%= form_for @blog do |form| %>
 
-  <table class='table table-striped table-hover table-border'>
-    <tr>
-      <th style="width: 150px;">
-        标题
-      </th>
-      <td>
-        <%= form.text_field :title, class: "form-control" %>
-      </td>
-    </tr>
-
-    <tr>
-      <th>
-        内容
-        <%#= form.label :content %>
-      </th>
-      <td>
-        <%= form.text_field :content , class: "form-control" %>
-      </td>
-    </tr>
-  </table>
-  <%= form.submit "确定", class: 'btn btn-primary' %>
-<% end %>
+<%= render 'form' %>
 <br/>
-<%= link_to "返回",blogs_path, class: 'btn btn-primary' %>
+<%= link_to "返回",blogs_path %>
