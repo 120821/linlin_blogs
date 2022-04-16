@@ -1,12 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Blogs</h1>
+<h1>listing blogs</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
       <th colspan="3"></th>
+      <td >
+        <a href="/blogs/<%= blog.id %>" > <%= blog.id %> <%= blog.title %> </a>
+      </td>
+      <td>
+        <%=blog.title %>
+      </td>
+      <td>
+        <%=blog.content %>
+      </td>
+      <td>
+        <%= link_to "编辑", edit_blog_path(:id => blog.id) %>
+        <%= link_to "删除",blog,:method => :delete, class: 'btn btn-primary' %>
+      </td>
     </tr>
   </thead>
 
@@ -24,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to "新建", new_blog_path %><br/>

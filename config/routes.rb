@@ -7,7 +7,7 @@ Rails.application.routes.draw do resources :blogs do
   namespace :interface do
     resources :blogs do
      collection do
-      get :all
+        get :all
       end
     end
   end
