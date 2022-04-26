@@ -1,13 +1,11 @@
 class BlogsController < ApplicationController
-
   before_action :get_by_id,:only =>[:show,:destroy,:edit,:update]
 
   def index
-    @blogs = Blog
+    @blog = Blog.all
     puts "--------------------hihih"
-    @blog = @blog.where('name like ? ', "%#{params[:blog_title]}%") if params[:blog_title].present?
-    @blog = @blog.where('address like ? ', "%#{params[:blog_content]}%") if params[:blog_content].present?
-   # @blog = @blog.page(params[:page]).per(30)
+    @blog = @blog.where('title like ? ', "%#{params[:blog_title]}%") if params[:blog_title].present?
+    @blog = @blog.where('content like ? ', "%#{params[:blog_content]}%") if params[:blog_content].present?
 
    # @total_count = @blog.all.size
     puts "-------end--index-----------hihih"
@@ -15,9 +13,8 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
-    @blog.title = params[:blog_title]
-    @blog.time = params[:blog_time]
-    @blog.content = params[:blog_content]
+    @blog.time = params[:time]
+    @blog.content = params[:content]
     @blog.save!
 
   end
@@ -34,9 +31,8 @@ class BlogsController < ApplicationController
   def update
     #@blog = Blog.find(params[:id])
     puts "=== in update, before : #{@blog.inspect}"
-    @blog.title = params[:blog_title]
-    @blog.time = params[:blog_time]
-    @blog.content = params[:blog_content]
+    @blog.title = params[:title]
+    @blog.content = params[:content]
     @blog.save!
     puts "=== in update, after: #{@blog.inspect}"
     redirect_to blogs_path
@@ -55,5 +51,8 @@ class BlogsController < ApplicationController
   private
   def get_by_id
     @blog = Blog.find(params[:id])
+  end
+  def blog_params
+    params.require(:blog).permit(:title, :content)
   end
 end

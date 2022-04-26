@@ -1,6 +1,6 @@
-<%= form_for @blog do |form| %>
+<%= form_for(@my_blog) do |f| %>
 
-  <table class='table table-striped table-hover table-bordered'>
+  <table class='table table-striped table-hover table-border'>
     <tr>
       <th style="width: 150px;">
         标题
@@ -19,7 +19,6 @@
       </td>
     </tr>
   </table>
-  <%= form.submit "确定", class: 'btn btn-primary' %>
+  <%= form.submit "确定", class: 'btn btn-primary btn-sm' %>
 <% end %>
-
 

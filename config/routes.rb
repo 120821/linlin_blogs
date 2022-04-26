@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get :list
     end
   end
+  resources :my_blogs
 
   resources :articals
   namespace :interface do
