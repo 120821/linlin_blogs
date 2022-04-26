@@ -2,13 +2,13 @@ class BlogsController < ApplicationController
   before_action :get_by_id,:only =>[:show,:destroy,:edit,:update]
 
   def index
-    @blog = Blog
+    @blog = Blog.all
     puts "--------------------hihih"
     @blog = @blog.where('title like ? ', "%#{params[:blog_title]}%") if params[:blog_title].present?
     @blog = @blog.where('content like ? ', "%#{params[:blog_content]}%") if params[:blog_content].present?
 
-    @total_count = @blog.all.size
-    @blog = @blog.page(params[:page]).per(30)
+    @totul_count = @blogs.all.size
+    @blogs = @blogs.page(params[:page]).per(30)
     puts "-------end--index-----------hihih"
   end
 
@@ -21,7 +21,6 @@ class BlogsController < ApplicationController
 
   def create
     puts("==params is: ")
-    @blog.time = params[:time]
     blog.create(  { :time => params[:time], :title=> params[:title], :content => params[:content] }  )
     redirect_to blogs_path
   end
@@ -39,7 +38,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    puts "==== im show"
   end
 
   def destroy
