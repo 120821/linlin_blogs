@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<table class='table table-striped table-hover table-border'>
+  <tr>
+    <th style="width:150px;">
+      标题
+    </th>
+    <td>
+      <%= @blog.title %>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      内容
+    </th>
+    <td>
+      <%= @blog.content %>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<br/>
+<%= link_to'返回',blogs_path, class: 'btn btn-primary' %>

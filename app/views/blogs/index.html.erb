@@ -1,10 +1,11 @@
-<h1>listing blogs</h1>
+<h3>列表</h3>
 
-<table>
-  <thead>
+博客总数<%#= @total_ count  %>
+<br/>
+<%#= paginate @blogs %>
+
+<table class="table table-striped">
     <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
       <td >
         <a href="/blogs/<%= blog.id %>" > <%= blog.id %> <%= blog.title %> </a>
       </td>
@@ -19,20 +20,8 @@
         <%= link_to "删除",blog,:method => :delete, class: 'btn btn-primary' %>
       </td>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 
-<br>
+<br/>
 
 <%= link_to "新建", new_blog_path %><br/>

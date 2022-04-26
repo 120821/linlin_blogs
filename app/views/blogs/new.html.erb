@@ -1,5 +1,4 @@
-<h1>New Blog</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', blogs_path %>
+<h3>新建页面</h3>
+<%= render 'form', blog: @blog %>
+<br/>
+<%= link_to "返回",blogs_path %>

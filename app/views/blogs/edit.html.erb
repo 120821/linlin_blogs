@@ -1,6 +1,5 @@
-<h1>Editing Blog</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<h3>编辑</h3>
+<%= render 'form', blog: @blog %>
+<br/>
+<%= link_to '详情', @blog %> |
+<%= link_to '返回', @blog_path %>
