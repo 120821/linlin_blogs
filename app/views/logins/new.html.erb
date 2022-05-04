@@ -1,0 +1,8 @@
+<h3> 登录页面</h3>
+
+<%= form_tag '/logins', method: 'post' do %>
+
+  username: <%= text_field_tag :username %> <br/>
+  password: <%= password_field_tag :password %> <br/>
+  <%= submit_tag '登录' %>
+<% end %>
