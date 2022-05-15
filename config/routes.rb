@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     end
   end
   resources :my_blogs
+  resources :logins do
+    collection do
+      get :logout
+    end
+  end
 
   resources :articals
   namespace :interface do
