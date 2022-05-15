@@ -3,31 +3,22 @@ class LoginsController < ApplicationController
 
   def new
   end
+  layout :false
 
 
   def create
-    username_and_password_paris = {
-      #使用=> 表示是字符串。使用：表示是symbol
-      #{username:'linlin',password:'88888888'},
-      #{username:'hihi', password: '888888'},
-      #{username:'haha', password: '8888'}
-      "linlin"=>"88888888",
-      "hihi" => "888888",
-      "haha"=> "8888",
-    }
-    is_user = username_and_password_paris[params[:username]] == params[:password]
-    if is_user
-      session[:current_user] = params[:username]
-      redirect_to my_blogs_path # 跳转到 首页
+    if params[:username] == 'admin' && params[:password] == '888$$$'
+      session[:current_user] = 'admin'
+      redirect_to blogs_path # 跳转到 首页
     else
-      redirect_to new_logins_path # 跳转到 登录页面
+      redirect_to new_login_path # 跳转到 登录页面
     end
   end
+  layout :false
 
   def logout
     session[:current_user] = nil
-    redirect_to my_blogs_path # 跳转到 首页
+    redirect_to claims_path # 跳转到 首页
   end
-  layout :false
 
 end
