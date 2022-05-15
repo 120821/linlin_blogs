@@ -1,12 +1,12 @@
 <%= form_for(@my_blog) do |f| %>
 
-  <table class='table table-striped table-hover table-border'>
+  <table class='table table-striped table-hover table-bordered'>
     <tr>
       <th style="width: 150px;">
         标题
       </th>
       <td>
-        <%= form.text_field :title, class: "form-control" %>
+        <%= f.text_field :title, class: "form-control" %>
       </td>
     </tr>
 
@@ -15,10 +15,10 @@
         内容
       </th>
       <td>
-        <%= form.text_field :content , class: "form-control" %>
+        <%= f.text_field :content , class: "form-control" %>
       </td>
     </tr>
   </table>
-  <%= form.submit "确定", class: 'btn btn-primary btn-sm' %>
+  <%= f.submit "确定", class: 'btn btn-primary btn-sm' %>
 <% end %>
 
