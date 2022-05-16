@@ -1,17 +1,19 @@
-<table class="table table-striped">
-  <tr>
-    <th>标题</th>
-    <td >
+<!-- 右侧区域，显示博客列表 -->
+  <!-- 使用这个 div 来放博客内容 -->
+  <div class="blog-content">
+    <%= link_to raw('编辑&gt;&gt;'), edit_blog_path(@blog), class: 'detail1'%>
+    <!-- 博客的标题 -->
+    <h3>
       <%= @blog.title %>
-    </td>
-  </tr>
-  <tr>
-    <th>内容</th>
-    <td>
-      <%= @blog.content %>
-    </td>
-  </tr>
-</table>
-
-<%= link_to '编辑', edit_blog_path(@blog) %> |
-<%= link_to '返回', blogs_path %>
+    </h3>
+    <!-- 博客的日期 -->
+    <div class="date">
+      <%= @blog.created_at.to_s(:db) %>
+    </div>
+    <!-- 博客的内容 -->
+    <div class="detail-content">
+      <%= raw(@blog.content) %>
+    </div>
+    <%= link_to raw('返回&gt;&gt;'), blogs_path, class: 'detail1'%>
+  </div>
+</div>

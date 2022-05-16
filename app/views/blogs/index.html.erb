@@ -1,43 +1,47 @@
 <h3>琳琳的博客</h3>
 
-<p>博客总数<%= @total_count %></p>
-<br/>
+<p>博客总数: <%= @total_count %></p>
 <%= paginate @blogs %>
 <%= link_to "新建", new_blog_path %><br/>
 
 <%= form_tag '', method: :get do %>
-  标题: <%= text_field_tag :blog_title, params[:blog_title] %>
-  内容: <%= text_field_tag :blog_content, params[:blog_content] %>
+  <label class="control-label">
+    标题
+    <i data-toggle="popover" data-togger="hover" data-container='body' data-html='true' title='说明：特殊查询1' data-content='输入xxxxx' class='fa fa-question-circle' > </i>
+    <%= text_field_tag :blog_title, params[:blog_title] %>
+  </label>
+  <label class="control-label">
+    内容:
+    <i data-toggle="popover" data-togger="hover" data-container='body' data-html='true' title='说明：特殊查询1' data-content='输入xxxxx' class='fa fa-question-circle' > </i>
+    <%= text_field_tag :blog_content, params[:blog_content], style: 'hight:30px;'%>
+  </label>
   <%= submit_tag raw("&#xf002; 查询"), class: "form_submit", class: 'btn btn-secondary btn-sm fa-input' %>
 <% end %>
 
-<table class="table table-bordered table-striped">
-    <tr>
-      <th>id</th>
-      <th>标题</th>
-      <th>内容</th>
-      <th style="width:150px;"></th>
-    </tr>
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td>
-        <%= blog.id %>
-        <a href="/blogs/<%= blog.id %>" > <%= blog.title %> </a>
-      </td>
-      <td>
-        <%=blog.title %>
-      </td>
-      <td>
-        <%=blog.content %>
-      </td>
-      <td>
-        <%= link_to "编辑", edit_blog_path(:id => blog.id) %>
-        <%= link_to "删除",blog,:method => :delete, class: 'btn btn-danger btn-sm' %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% @blogs.each do |blog| %>
+  <!--
+    <a href="/blogs/<%= blog.id %>" > <%= blog.title %> </a>
+  -->
+  <%= blog.id %>
+  <%=blog.title %>
+  <div class="title">
+    <%=blog.title %>
+  </div>
+  <div class="date">
+    <%= blog.created_at.to_s(:db) %>
+  </div>
+  <div class="desc">
+    <%= raw(blog.content) %>
+  </div>
+  <div>
+    <a href="/blogs/<%= blog.id %>" class="detail">查看全文&gt;&gt;
+    </a>
+    <%#= link_to raw("编辑&gt;&gt;"), edit_blog_path(:id => blog.id), class: 'detail1' %>
+    <%#= link_to "删除",blog,:method => :delete %>
+  </div>
+<% end %>
 
+<%= paginate @blogs %>
 <br/>
 <%= link_to '返回', blogs_path %>
 
