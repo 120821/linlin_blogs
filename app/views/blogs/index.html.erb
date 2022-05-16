@@ -1,9 +1,7 @@
 <h3>琳琳的博客</h3>
-
 <p>博客总数: <%= @total_count %></p>
 <%= paginate @blogs %>
 <%= link_to "新建", new_blog_path %><br/>
-
 <%= form_tag '', method: :get do %>
   <label class="control-label">
     标题
@@ -44,5 +42,3 @@
 <%= paginate @blogs %>
 <br/>
 <%= link_to '返回', blogs_path %>
-
-
