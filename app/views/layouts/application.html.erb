@@ -24,34 +24,34 @@
     </div>
     <!-- 版心 -->
     <div class="container">
-        <!-- 左侧区域，显示用户信息 -->
-        <div class="container-left">
-            <!-- 用户详情 -->
-            <div class="card">
-                <!-- 用户的头像 -->
-                <%= image_tag('fairy.jpeg', style: 'width: 140px; height: 140px') %>
-                <!-- 用户名 -->
-                <h3></h3>
-                <!-- 其它信息 -->
-                <a href="https://blog.csdn.net/m0_67038390?type=blog target='_blank'">CSDN 地址</a>
-                <a href="#">GitHub 地址</a>
-                <!-- 文章分类 -->
-                <div class="counter">
-                    <span>文章</span>
-                    <span>分类</span>
-                </div>
-                <div class="counter">
-                  <span><%= @total_count %></span>
-                    <span>todo</span>
-                </div>
-            </div>
+      <!-- 左侧区域，显示用户信息 -->
+      <div class="container-left">
+        <!-- 用户详情 -->
+        <div class="card">
+          <!-- 用户的头像 -->
+          <%= image_tag('fairy.jpeg', style: 'width: 140px; height: 140px') %>
+          <!-- 用户名 -->
+          <h3></h3>
+          <!-- 其它信息 -->
+          <a href="https://blog.csdn.net/m0_67038390?type=blog target='_blank'">CSDN 地址</a>
+          <a href="#">GitHub 地址</a>
+          <!-- 文章分类 -->
+          <div class="counter">
+            <span>文章</span>
+            <span>分类</span>
+          </div>
+          <div class="counter">
+            <span><%= @total_count %></span>
+            <span>todo</span>
+          </div>
         </div>
-        <!-- 右侧区域，显示博客列表 -->
-        <div class="container-right">
-          <!-- 每个 blog 代表一篇博客 -->
-          <div class="blog">
-            <%= yield %>
+      </div>
+      <!-- 右侧区域，显示博客列表 -->
+      <div class="container-right">
+        <!-- 每个 blog 代表一篇博客 -->
+        <div class="blog">
+          <%= yield %>
         </div>
-    </div>
+      </div>
   </body>
 </html>
