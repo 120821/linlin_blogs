@@ -8,12 +8,17 @@
 /** compiled file so the styles you add here take precedence over styles defined in any styles        */
 /** defined in the other CSS/SCSS files in this directory. It is generally better to create a new     */
 /** file per style scope.                                                                             */
-= require_tree .
-= require_self
-= require animate.min.css     */
-= require font-awesome.min.css*/
-= require share.min.css       */
+/*
+*= require_tree .
+*= require_self
+*= require animate.min.css
+*= require font-awesome.min.css
+*= require share.min.css
+*/
 
+.fa-input {
+  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
 /* 这个 CSS 文件是用来放博客详情页的专属样式 */
 
 /* 标题编辑区 */
@@ -243,7 +248,8 @@ html, body {
   width: 795px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  background-attachment:fixed
+  background-attachment:fixed;
+  overflow: auto;
 }
 
 /* 用户信息卡片，也会在多个页面中用到 */
