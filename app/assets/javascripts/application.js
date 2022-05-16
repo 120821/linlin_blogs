@@ -9,6 +9,13 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+const importAll = (r) => r.keys().map(r)
+importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+
+
+$(document).ready(function(){
+    $("[rel=tooltip]").tooltip({ placement: 'right'});
+});
 //
 //= require jquery
 //= require jquery_ujs
