@@ -1,8 +1,12 @@
-<h3> 登录页面</h3>
-
+<!-- 登录页面的版心 -->
 <%= form_tag '/logins', method: 'post' do %>
-
-  username: <%= text_field_tag :username %> <br/>
-  password: <%= password_field_tag :password %> <br/>
+  <h3>登录</h3>
+  <span>用户名:</span>
+  <%= text_field_tag :username %> <br/>
+  </div>
+  <span>密码: </span>
+  <%= password_field_tag :password %> <br/>
+  </div>
   <%= submit_tag '登录' %>
+  </div>
 <% end %>
