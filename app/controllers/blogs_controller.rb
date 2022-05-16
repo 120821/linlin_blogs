@@ -6,7 +6,9 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog
     @total_count = Blog.all.size
-    @blogs = @blogs.page(params[:page]).per(10)
+    @blogs = @blogs.order('id desc').page(params[:page]).per(100)
+    @blogs = @blogs.where('title like ?', "%#{params[:blog_title]}%") if params[:blog_title].present?
+    @blogs = @blogs.where('content like ?', "%#{params[:blog_content]}%") if params[:blog_content].present?
   end
 
   # GET /blogs/1
