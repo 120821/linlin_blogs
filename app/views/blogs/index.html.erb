@@ -9,9 +9,9 @@
     <%= text_field_tag :blog_title, params[:blog_title] %>
   </label>
   <label class="control-label">
-    内容:
+    内容
     <i data-toggle="popover" data-togger="hover" data-container='body' data-html='true' title='说明：特殊查询1' data-content='输入xxxxx' class='fa fa-question-circle' > </i>
-    <%= text_field_tag :blog_content, params[:blog_content], style: 'hight:30px;'%>
+    <%= text_field_tag :blog_content, params[:blog_content] %>
   </label>
   <%= submit_tag raw("&#xf002; 查询"), class: "form_submit", class: 'btn btn-secondary btn-sm fa-input' %>
 <% end %>
@@ -34,8 +34,8 @@
   <div>
     <a href="/blogs/<%= blog.id %>" class="detail">查看全文&gt;&gt;
     </a>
-    <%#= link_to raw("编辑&gt;&gt;"), edit_blog_path(:id => blog.id), class: 'detail1' %>
-    <%#= link_to "删除",blog,:method => :delete %>
+    <%= link_to raw("编辑&gt;&gt;"), edit_blog_path(:id => blog.id), class: 'detail1' %>
+    <%= link_to "删除",blog,:method => :delete %>
   </div>
 <% end %>
 

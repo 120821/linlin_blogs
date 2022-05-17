@@ -4,16 +4,19 @@
   <!-- 标题编辑区 -->
   <%= form_for @blog do |form| %>
     <div class="title">
-      标题: <%= form.text_field :title %>
+      <label>
+        标题:
+        <%= form.text_field :title %>
+      </label>
     </div>
     <!-- 内容编辑区 -->
     <div id="editor">
       <%#= form.text_area :content, size: "170x30" %>
       内容: <%#= form.text_field :content %>
-    <%= form.text_area :content, size: "80x80" %>
-    <%= form.submit "发布文章", class: 'btn btn-primary btn-sm' %>
-  <% end %>
     </div>
+      <%= form.text_area :content, size: "80x80" %>
+      <%= form.submit "发布文章", class: 'btn btn-primary btn-sm' %>
+  <% end %>
 </div>
 
 <script>
