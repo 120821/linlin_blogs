@@ -3,7 +3,7 @@ class LoginsController < ApplicationController
 
   def new
   end
-  layout :false
+  #layout :false
 
   def create
     if params[:username] == 'admin' && params[:password] == '888$$$'
@@ -15,7 +15,7 @@ class LoginsController < ApplicationController
       # 跳转到 登录页面
     end
   end
-  layout :false
+  #layout :false
 
   def logout
     session[:current_user] = nil

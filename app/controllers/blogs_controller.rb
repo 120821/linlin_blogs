@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :login
   # GET /blogs
   # GET /blogs.json
   def index
@@ -28,11 +29,11 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    @blog = Blog.new(blog_params).where('username = admin', params[:currentuser])
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'blog was successfully created.' }
+        format.html { redirect_to @blog, notice: '操作成功' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: '操作成功' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
@@ -60,7 +61,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'blog was successfully destroyed.' }
+      format.html { redirect_to blogs_url, notice: '操作成功' }
       format.json { head :no_content }
     end
   end

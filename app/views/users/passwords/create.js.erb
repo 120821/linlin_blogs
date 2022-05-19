@@ -1,0 +1,21 @@
+ var new_user = document.getElementById('new_user')
+ var x = document.createElement('INPUT');
+ var l = document.createElement('label')
+ x.setAttribute('id', 'new_password');
+ x.setAttribute('type', 'text');
+ x.setAttribute('class', 'form-control')
+ x.setAttribute('name', 'new_password');
+ l.setAttribute('for', 'new_password')
+ l.innerHTML = '新密码'
+ var div = document.createElement('div')
+ div.setAttribute('class', 'field')
+ div.appendChild(l)
+ div.appendChild(x)
+ var phone = document.createElement('input')
+ phone.setAttribute('type', 'hidden');
+ phone.setAttribute('name', 'user[phone]');
+ phone.setAttribute('value', $('#phone').val())
+ document.getElementById('phone_field').remove()
+ document.getElementById('token_field').remove()
+ new_user.insertBefore(div, new_user.childNodes[0])
+ new_user.insertBefore(phone, new_user.childNodes[0])

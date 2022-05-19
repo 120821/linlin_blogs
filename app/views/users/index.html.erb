@@ -1,0 +1,89 @@
+<div class="row white-bg page-heading">
+  <div class="col-lg-2">
+    <h2><%= t("header.background_administrator")%></h2>
+  </div>
+  <div style="margin-top: 0.7%">
+    <%= link_to t("header.new_user"), new_user_registration_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <table class="table-hover table table-stripped toggle-arrow-tiny">
+                    <thead>
+                    <tr>
+                      <th data-toggle="true">Email</th>
+                      <th data-hide="phone">是否绑定谷歌验证码</th>
+                      <th data-hide="phone">角色</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <% if @users.present? %>
+                        <% @users.each do |user| %>
+                          <tr>
+                            <td>
+                              <%= user.email %>
+                            </td>
+                            <td>
+                              <span class="<%= user.is_otp_binded ? 'green-color' : 'red-color'%>"><%= user.is_otp_binded ? '已绑定' : '未绑定' %></span>
+
+                            </td>
+                            <td>
+                              <%= select_tag :role_id, options_from_collection_for_select(Role.all, :id, :comment, user.role_id), include_blank: '禁用', id: user.id, class: 'get-role' %>
+                            </td>
+                          </tr>
+                        <% end %>
+                      <% end %>
+
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="11">
+                          <ul class="pull-right"><%= paginate @users %></ul>
+                        </td>
+                      </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<style>
+  .red-color{color: red;}
+  .green-color{color: #1ab394;}
+</style>
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('.footable').footable();
+
+});
+
+$('.get-role').change(function(){
+  user_id = this.id
+  role_id = $("#"+user_id +" option:selected").val()
+  $.ajax({
+    url:"/users/update_user_role",
+    dataType:"json",
+    async:false,
+    data:{id: user_id, "role_id": role_id},
+    type:"POST"
+  });
+})
+
+</script>
+
+<% end %>
