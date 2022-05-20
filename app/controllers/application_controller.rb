@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
     else
     end
   end
+  def root_path
+    ::RAILS_ROOT
+  end
 end

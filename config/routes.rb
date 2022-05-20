@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :my_blogs
   resources :articals
 
+  root :to => "blogs#index"
+
   resources :logins do
     collection do
       get :logout
@@ -17,7 +19,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :blogs do
       collection do
-        get :all
         #todo 写一个接口出来 post
         post '/blogs/upload_paste_image_to_cdn', to: 'blogs#upload_paste_image_to_cdn'
       end
