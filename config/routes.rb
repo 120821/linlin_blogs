@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :blogs, only:[:index, :show] do
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :blogs do
     collection do
       get :list
     end
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :my_blogs
   resources :articals
+  resources :users
 
   root :to => "blogs#index"
 
@@ -16,10 +18,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :buckets do
+    resources :objects
+  end
+
   namespace :admin do
     resources :blogs do
       collection do
-        #todo 写一个接口出来 post
         post '/blogs/upload_paste_image_to_cdn', to: 'blogs#upload_paste_image_to_cdn'
       end
     end
