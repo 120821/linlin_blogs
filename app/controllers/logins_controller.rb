@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-  skip_before_action :check_user_login
+  #skip_before_action :check_user_login
 
   def new
   end
