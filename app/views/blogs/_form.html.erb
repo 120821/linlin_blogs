@@ -14,13 +14,17 @@
       <%#= form.text_area :content, size: "170x30" %>
       内容: <%#= form.text_field :content %>
     </div>
-      <%= form.text_area :content, size: "80x80" %>
+
+      <%= form.cktext_area :content %>
+      <%# form.text_area :content, size: "80x80" %>
       <%= form.submit "发布文章", class: 'btn btn-primary btn-sm' %>
   <% end %>
 </div>
 
 <script>
+  /*
   // Replace the <textarea id="editor1"> with a CKEditor 4
   // instance, using default configuration.
   CKEDITOR.replace( 'blog_content' );
+  */
 </script>

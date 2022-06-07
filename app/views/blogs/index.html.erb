@@ -1,7 +1,7 @@
 <h3>琳琳的博客</h3>
 <p>博客总数: <%= @total_count %></p>
 <%= paginate @blogs %>
-<%#= link_to "新建", new_admin_blog %><br/>
+<%= link_to "新建", new_blog_path %><br/>
 <%= form_tag '', method: :get do %>
   <label class="control-label">
     标题
@@ -34,8 +34,8 @@
   <div>
     <a href="/blogs/<%= blog.id %>" class="detail">查看全文&gt;&gt;
     </a>
-    <%#= link_to raw("编辑&gt;&gt;"), edit_blog_path(:id => blog.id), class: 'detail1' %>
-    <%#= link_to "删除",blog,:method => :delete %>
+    <%= link_to raw("编辑&gt;&gt;"), edit_blog_path(:id => blog.id), class: 'detail1' %>
+    <%= link_to "删除",blog,:method => :delete %>
   </div>
 <% end %>
 
