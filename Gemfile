@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'aliyun-sdk', '~> 0.8.0'
+#gem 'carrierwave'
+gem 'carrierwave-aliyun'
+gem 'upyun'
+
+gem 'mini_magick'
+gem 'ckeditor'
+
+gem 'json'
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
@@ -47,4 +56,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
