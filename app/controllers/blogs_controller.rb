@@ -6,10 +6,10 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog
+    @total_count = @blogs.all.size
     @blogs = @blogs.order('id desc').page(params[:page]).per(100)
     @blogs = @blogs.where('title like ?', "%#{params[:blog_title]}%") if params[:blog_title].present?
     @blogs = @blogs.where('content like ?', "%#{params[:blog_content]}%") if params[:blog_content].present?
-    @total_count = @blogs.all.size
     @blogs = @blogs.order('id desc').page(params[:page]).per(100)
   end
 
