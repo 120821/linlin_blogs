@@ -6,6 +6,7 @@ gem 'aliyun-sdk', '~> 0.8.0'
 gem 'carrierwave-aliyun'
 gem 'upyun'
 gem 'thin'
+gem 'httparty'
 
 gem 'mini_magick'
 gem 'ckeditor'
