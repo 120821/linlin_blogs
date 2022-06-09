@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
+#source 'https://gems.ruby-china.com'
 
 gem 'aliyun-sdk', '~> 0.8.0'
 #gem 'carrierwave'
 gem 'carrierwave-aliyun'
 gem 'upyun'
+gem 'thin'
 
 gem 'mini_magick'
 gem 'ckeditor'
