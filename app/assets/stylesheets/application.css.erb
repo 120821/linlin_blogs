@@ -16,6 +16,11 @@
 *= require share.min.css
 */
 
+a:hover {
+  color: plum!important;
+  background-color: transparent;
+}
+
 .fa-input {
   font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
@@ -79,7 +84,7 @@
 .blog-content .date {
     text-align: center;
     padding-bottom: 10px;
-    color: grey;
+    color: snow;
 }
 
 /* 博客内容 */
@@ -96,17 +101,18 @@
 /* 博客的标题 */
 .blog .title {
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
   padding-top: 10px;
   padding-bottom: 5px;
+  color: snow;
 }
 
 /* 博客的日期 */
 .blog .date {
   text-align: center;
   padding-bottom: 10px;
-  color: grey;
+  color: snow;
 }
 
 /* 博客的描述 */
@@ -114,7 +120,7 @@
   text-indent: 2em;
   position: relative;
   line-height: 20px;
-  max-height: 40px;
+  max-height: 80px;
   overflow: hidden;
 }
 
@@ -122,10 +128,10 @@
 .blog .detail {
   display: block;
   width: 120px;
-  color: grey;
+  color: snow;
   height: 30px;
   /* 设置边框 */
-  border: 2px solid grey;
+  border: 2px solid snow;
   /* 文字水平居中 */
   text-align: center;
   /* 文字垂直居中 */
@@ -140,10 +146,10 @@
 .blog .detail1 {
   display: block;
   width: 80px;
-  color: lightpink;
+  color: white;
   height: 30px;
   /* 设置边框 */
-  border: 2px solid grey;
+  border: 2px solid snow;
   /* 文字水平居中 */
   text-align: center;
   /* 文字垂直居中 */
@@ -161,7 +167,7 @@
 
 /* 实现鼠标悬停在按钮上时有一个背景色切换的效果 */
 .blog .detail:hover {
-  background-color: grey;
+  background-color: transparent;
   color: white;
 }
 
@@ -225,7 +231,7 @@ html, body {
   color: white;
 }
 .nav .a:hover {
-  background-color: grey;
+  background-color: transparent;
   color: white;
 }
 
@@ -255,10 +261,12 @@ html, body {
   background-attachment:fixed;
   overflow: auto;
 }
-
+/*
+  background-color: lightsteelblue;
+  background-color: rgba(255, 255, 255, 0.3);
+*/
 /* 用户信息卡片，也会在多个页面中用到 */
 .card {
-  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 30px;
 }
@@ -282,7 +290,7 @@ html, body {
   display: block;
   text-decoration: none;
   text-align: center;
-  color: grey;
+  color: snow;
   padding: 3px;
 }
 
