@@ -1,8 +1,17 @@
 class MyBlogsController < ApplicationController
-  before_action :set_my_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_my_blog, only: [:show, :edit, :update, :destroy, :test]
 
   # GET /my_blogs
   # GET /my_blogs.json
+
+  def test
+
+    @test = MyBlog.where('title = ?', params[:title])
+    respond_do |format|
+      format.html
+      format.json {render json: @test}
+  end
+
   def index
     @my_blogs = MyBlog
     @total_count = MyBlog.all.size

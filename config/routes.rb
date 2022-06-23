@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :my_blogs
+  resources :my_blogs do
+    collection do
+      get :test
+    end
+  end
   resources :articals
   resources :users
 
