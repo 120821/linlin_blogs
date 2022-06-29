@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  has_many :blogs
+  belongs_to :blog, optional: true
 end
