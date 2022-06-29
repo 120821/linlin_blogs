@@ -2,11 +2,11 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog
-    @total_count = @blogs.all.size
-    @blogs = @blogs.order('created_at desc').page(params[:page]).per(100)
+    @blogs = Blog.all
     @blogs = @blogs.where('title like ?', "%#{params[:blog_title]}%") if params[:blog_title].present?
     @blogs = @blogs.where('content like ?', "%#{params[:blog_content]}%") if params[:blog_content].present?
+    @total_count = @blogs.all.size
+    @blogs = @blogs.order('created_at desc').page(params[:page]).per(100)
   end
 
   # GET /blogs/1
