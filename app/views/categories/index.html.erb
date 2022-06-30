@@ -1,0 +1,39 @@
+<h3>博客的类别</h3>
+<p>类别总数<%= @categories_total_count %></p>
+<%= paginate @categories %>
+<%= link_to "新建", new_category_path %><br/>
+
+<%= form_tag '', method: :get do %>
+  名称: <%= text_field_tag :category_name, params[:category_name] %>
+  博客ID: <%= text_field_tag :category_blog_id, params[:category_blog_id] %>
+  <%= submit_tag "查询", class: "form_submit", class: 'btn btn-secondary btn-sm'  %>
+<% end %>
+
+<table class="table table-stripped table-bordered table-hover">
+  <tr>
+    <th style="width: 150px;">ID</th>
+    <th>名称</th>
+    <th>博客ID</th>
+    <th style="width: 150px;">操作</th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td>
+        <%= category.id %>
+      </td>
+      <td>
+        <%= category.name %>
+      </td>
+      <td>
+        <%= category.blog_id  rescue ''%>
+      </td>
+      <td>
+        <%= link_to "编辑", edit_category_path(:id => category.id) %>
+        <%= link_to "删除",category,:method => :delete, class: 'btn btn-danger btn-sm' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to '返回', categories_path %><br>
+<%= link_to '新建', new_category_path %>

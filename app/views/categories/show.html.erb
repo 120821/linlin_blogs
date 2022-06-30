@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<table class="table table-striped table-bordered">
+    <tr>
+      <th style="width: 150px;">名称</th>
+      <td >
+        <h6><%= @category.name %></h6>
+      </td>
+    </tr>
+    <tr>
+      <th>博客ID</th>
+      <td>
+        <%= category.blog_id rescue '' %>
+      </td>
+      </th>
+    </tr>
+</table>
+
+<%= link_to '编辑', edit_category_path(@category) %> |
+<%= link_to '返回', categories_path %>
