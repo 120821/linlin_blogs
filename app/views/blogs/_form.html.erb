@@ -8,6 +8,10 @@
         标题:
         <%= form.text_field :title %>
       </label>
+      <label>
+        类别:
+        <%= form.select "category_id", options_from_collection_for_select(Category.all, :id, :name) %>
+      </label>
     </div>
     <!-- 内容编辑区 -->
     <div id="editor">
