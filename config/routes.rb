@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       get :test
     end
   end
+  resources :categories do
+    collection do
+    end
+  end
   resources :articals
   resources :users
 
