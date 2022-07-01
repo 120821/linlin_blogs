@@ -11,6 +11,7 @@
       <label>
         类别:
         <%= form.select "category_id", options_from_collection_for_select(Category.all, :id, :name) %>
+        没有找到？<%= link_to "点此新建", new_category_path %>
       </label>
     </div>
     <!-- 内容编辑区 -->
