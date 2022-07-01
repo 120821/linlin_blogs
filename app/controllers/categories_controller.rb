@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @categories_total_count = @categories.all.size
-    @categories = @categories.page(params[:page]).per(10)
+    @categories = @categories.page(params[:page]).per(100)
   end
 
   # GET /categories/1
